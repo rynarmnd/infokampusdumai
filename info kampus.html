@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INFO KAMPUS DUMAI</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <script>
+    function toggleTentangAndScroll() {
+      const tentangSection = document.getElementById('tentangSection');
+      const isHidden = tentangSection.classList.contains('hidden');
+
+      if (isHidden) {
+        // Jika tersembunyi, tampilkan dan gulir
+        tentangSection.classList.remove('hidden');
+        setTimeout(() => { // Beri sedikit delay agar transisi terlihat
+          tentangSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
+      } else {
+        // Jika sudah terlihat, sembunyikan
+        tentangSection.classList.add('hidden');
+      }
+    }
+
+    // Fungsi untuk menutup 'Tentang' jika klik di luar
+    document.addEventListener('click', function(event) {
+      const tentangSection = document.getElementById('tentangSection');
+      const tentangLink = document.getElementById('tentangNavLink'); // ID baru untuk link 'Tentang'
+      
+      // Jika section 'Tentang' terlihat DAN yang diklik BUKAN section 'Tentang' itu sendiri ATAU BUKAN link 'Tentang'
+      if (!tentangSection.classList.contains('hidden') && !tentangSection.contains(event.target) && !tentangLink.contains(event.target)) {
+        tentangSection.classList.add('hidden');
+      }
+    });
+
+    // Opsional: Untuk menutup 'Tentang' saat tombol ESC ditekan
+    document.addEventListener('keydown', function(event) {
+      const tentangSection = document.getElementById('tentangSection');
+      if (event.key === 'Escape' && !tentangSection.classList.contains('hidden')) {
+        tentangSection.classList.add('hidden');
+      }
+    });
+
+    // Fungsi baru untuk menggulir ke atas halaman
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Pastikan section "Tentang" tertutup jika sedang terbuka saat ke atas
+      const tentangSection = document.getElementById('tentangSection');
+      if (!tentangSection.classList.contains('hidden')) {
+        tentangSection.classList.add('hidden');
+      }
+    }
+  </script>
+  <style>
+    /* Global Styles */
+    body {
+      background-color: #F8F9FA; /* Sangat terang, hampir putih, untuk kesan bersih dan modern */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font yang lebih modern */
+    }
+
+    .fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Navbar specific styles */
+    .navbar {
+      background: linear-gradient(to right, #0A2240, #1F456E); /* Gradien biru tua ke biru sedang */
+      position: sticky; /* Membuat navbar mengikuti guliran */
+      top: 0; /* Menempel di bagian atas */
+      z-index: 1000; /* Pastikan navbar di atas elemen lain */
+      width: 100%; /* Pastikan lebar penuh */
+    }
+
+    /* Hero Section Specific Styles (untuk gambar latar belakang) */
+    .hero-section {
+        background-image: url("p4.jpg"); /* Pastikan 'kami.jpg' ada di folder yang sama */
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Bayangan lebih kuat */
+        border-radius: 1rem; /* Sudut sedikit lebih membulat */
+        height: 600px; /* Sedikit disesuaikan */
+        margin: 2rem auto; /* Margin lebih besar */
+        padding: 2rem;
+        display: flex;
+        flex-direction: column; /* Mengatur konten di tengah secara vertikal */
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white; /* Pastikan teks di atas gambar terlihat */
+        position: relative; /* Untuk overlay */
+    }
+    .hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(10, 34, 64, 0.6); /* Overlay biru tua semi-transparan */
+        border-radius: 1rem;
+        z-index: 1;
+    }
+    .hero-section > * {
+        position: relative;
+        z-index: 2; /* Pastikan konten di atas overlay */
+    }
+    .hero-section h1 {
+        font-size: 4.5rem; /* Ukuran font lebih besar untuk judul utama */
+        font-weight: 900; /* Lebih tebal */
+        color: #E0F2F7; /* Biru sangat muda, kontras dengan overlay gelap */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow pada teks */
+    }
+    .hero-section p {
+        color: #E0F2F7; /* Warna teks senada dengan judul */
+        font-size: 1.25rem; /* Ukuran font sedikit lebih besar */
+        max-width: 700px; /* Lebar maksimum teks */
+    }
+
+    /* Section 'Tentang' */
+    #tentangSection {
+      background-color: #FFFFFF; /* Tetap putih bersih */
+      border-radius: 1.25rem; /* Lebih membulat */
+      padding: 2.5rem; /* Padding lebih banyak */
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Bayangan lebih kuat untuk pop-up */
+      /* Atur margin agar ada sedikit jarak dari elemen di atas/bawahnya */
+      margin: 2rem auto; /* Atur margin atas dan bawah */
+      max-width: 3xl; /* Pastikan Tailwind max-w-3xl tetap bekerja */
+      position: relative; /* Penting untuk z-index */
+      z-index: 999; /* Agar selalu di atas konten lain saat dibuka */
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+
+  <nav class="navbar text-white px-6 py-4 shadow-lg flex justify-between items-center">
+    <div class="text-2xl font-bold tracking-wide">INFO KAMPUS DUMAI</div>
+    <div class="space-x-4">
+      <a href="#" onclick="scrollToTop()" class="hover:text-gray-200 transition duration-300">Beranda</a>
+      <a id="tentangNavLink" onclick="toggleTentangAndScroll()" class="hover:text-yellow-300 transition duration-300 cursor-pointer">Tentang</a>
+    </div>
+  </nav>
+
+  <section class="hero-section">
+      <h1 class="font-extrabold">Selamat Datang di Info Kampus Dumai</h1>
+      <p class="mt-4 max-w-2xl mx-auto text-lg">Temukan informasi lengkap tentang kampus impianmu di Kota Dumai — dari universitas, sekolah tinggi, hingga politeknik.</p>
+      
+      <div class="flex justify-center my-10">
+        <a href="tampilan2.html" class="bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-indigo-700 hover:to-blue-600 text-white px-8 py-4 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 text-lg font-semibold">
+          Tampilkan Daftar Kampus
+        </a>
+      </div>
+  </section>
+
+  <section id="tentangSection" class="hidden max-w-3xl mx-auto p-6 rounded-xl shadow-lg fade-in">
+    <h2 class="text-3xl font-bold text-blue-800 mb-4">Tentang Aplikasi Ini</h2>
+    <p class="text-gray-700 text-lg leading-relaxed">Aplikasi <strong>Info Kampus Dumai</strong> dikembangkan oleh tiga mahasiswa Universitas Dumai:</p>
+    <ul class="list-disc list-inside text-gray-800 my-4 text-lg">
+    <P class="text-gray-700 text-lg leading-relaxed">JURUSAN REKAYASA PERANGKAT LUNAK:</P>
+      <li>Muhammad Rian Armanda</li>
+      <li>Punto Dewo Sugianto</li>
+      <li>Sohibul Hakim</li>
+    </ul>
+    <p class="text-gray-700 text-lg leading-relaxed">Tujuan aplikasi ini adalah untuk membantu siswa-siswi SMA dalam memilih kampus terbaik di Dumai secara mudah dan cepat.</p>
+    <p class="text-gray-600 italic mt-5 text-md">"Setiap langkah awal menuju pendidikan adalah pondasi masa depan yang gemilang."</p>
+  </section>
+
+  <footer class="bg-blue-900 text-white text-center py-5 mt-12 shadow-inner">
+    <p class="text-lg">&copy; 2025 Info Kampus Dumai. Dibuat untuk edukasi dan informasi.</p>
+  </footer>
+</body>
+</html>

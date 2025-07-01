@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daftar Kampus Dumai</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    /* Sertakan semua styling untuk .kampus-card dan body dari info kampus.html di sini juga */
+    body {
+      background-color: #F8F9FA;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .kampus-card {
+      background-color: #FFFFFF;
+      border-radius: 1.25rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease-in-out;
+    }
+    .kampus-card:hover {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      transform: translateY(-5px) scale(1.02);
+    }
+    .kampus-card img {
+      border-top-left-radius: 1.25rem;
+      border-top-right-radius: 1.25rem;
+      background-color: #F0F4F8;
+    }
+    .kampus-card h2 {
+      color: #0A2240;
+    }
+    .kampus-card a.button {
+      background: linear-gradient(to right, #2C7BE5, #1A5276);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .kampus-card a.button:hover {
+      background: linear-gradient(to right, #1A5276, #2C7BE5);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <nav class="navbar text-white px-6 py-4 shadow-lg flex justify-between items-center">
+    <div class="text-2xl font-bold tracking-wide">DAFTAR KAMPUS DUMAI</div>
+    <div class="space-x-4">
+      <a href="info kampus.html" class="hover:text-gray-200 transition duration-300">Beranda</a>
+      </div>
+  </nav>
+
+  <h1 class="text-4xl font-bold text-center text-blue-800 mt-10 mb-6">Daftar Kampus di Dumai</h1>
+
+  <main class="p-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+    <div class="kampus-card overflow-hidden">
+      <img src="logo_unidum-removebg-preview.png" alt="Universitas Dumai" class="w-full h-48 object-contain bg-gray-100 p-6">
+      <div class="p-5">
+        <h2 class="text-xl font-bold mb-3">Universitas Dumai</h2>
+        <a href="https://universitasdumai.ac.id/" target="_blank" class="button inline-block">Kunjungi Website</a>
+      </div>
+    </div>
+    <div class="kampus-card overflow-hidden">
+      <img src="logo stt.png" alt="STT Dumai" class="w-full h-48 object-contain bg-gray-100 p-6">
+      <div class="p-5">
+        <h2 class="text-xl font-bold mb-3">STT Dumai</h2>
+        <a href="https://sttdumai.ac.id/" target="_blank" class="button inline-block">Kunjungi Website</a>
+      </div>
+    </div>
+    <div class="kampus-card overflow-hidden">
+      <img src="Logo_Stia1-removebg-preview.png" alt="STIA-LK-Dumai" class="w-full h-48 object-contain bg-gray-100 p-6">
+      <div class="p-5">
+        <h2 class="text-xl font-bold mb-3">STIA-lk-Dumai</h2>
+        <a href="https://stia-lk-dumai.ac.id/" target="_blank" class="button inline-block">Kunjungi Website</a>
+      </div>
+    </div>
+    <div class="kampus-card overflow-hidden">
+      <img src="iaitf-removebg-preview.png" alt="IAITF Dumai" class="w-full h-48 object-contain bg-gray-100 p-6">
+      <div class="p-5">
+        <h2 class="text-xl font-bold mb-3">IAITF Dumai</h2>
+        <a href="https://iaitfdumai.ac.id/" target="_blank" class="button inline-block">Kunjungi Website</a>
+      </div>
+    </div>
+    <div class="kampus-card overflow-hidden">
+      <img src="akper.png" alt="Akper Dumai" class="w-full h-48 object-contain bg-gray-100 p-6">
+      <div class="p-5">
+        <h2 class="text-xl font-bold mb-3">Akper Dumai</h2>
+        <a href="https://akpersbtdumai.ac.id/" target="_blank" class="button inline-block">Kunjungi Website</a>
+      </div>
+    </div>
+    <div class="kampus-card overflow-hidden">
+      <img src="stie-removebg-preview.png" alt="STIE Dumai" class="w-full h-48 object-contain bg-gray-100 p-6">
+      <div class="p-5">
+        <h2 class="text-xl font-bold mb-3">STIE Dumai</h2>
+        <a href="https://share.google/0nNyiPVQjd74hma79" target="_blank" class="button inline-block">Kunjungi Website</a>
+      </div>
+    </div>
+    <div class="kampus-card overflow-hidden">
+      <img src="politeknik .png" alt="Politeknik Kelautan Dan Perikanan Dumai" class="w-full h-48 object-contain bg-gray-100 p-6">
+      <div class="p-5">
+        <h2 class="text-xl font-bold mb-3">Politeknik Kelautan Dan Perikanan Dumai</h2>
+        <a href="https://politeknikkpdumai.ac.id/home/" target="_blank" class="button inline-block">Kunjungi Website</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-blue-900 text-white text-center py-5 mt-12 shadow-inner">
+    <p class="text-lg">&copy; 2025 Info Kampus Dumai. Dibuat untuk edukasi dan informasi.</p>
+  </footer>
+</body>
+</html>
